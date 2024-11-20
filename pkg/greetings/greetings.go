@@ -1,17 +1,29 @@
 package greetings
 
+// #include <stdio.h>
+// #include <stdlib.h>
+//
+// static void myprint(char* s) {
+//   printf("%s\n", s);
+// }
+import "C"
+
 import (
 	"errors"
 	"fmt"
 	"math/rand"
+	"runtime/cgo"
 	"time"
 )
 
-func Hello(name string) (string, error) {
+type Id cgo.Incomplete
 
+func Hello(name string) (string, error) {
 	if name == "" {
 		return "", errors.New("no name")
 	}
+	cs := C.CString("Hello from stdio")
+	C.myprint(cs)
 	message := fmt.Sprintf(randomFormat(), name)
 	return message, nil
 }

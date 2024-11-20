@@ -5,6 +5,7 @@ go_library(
     srcs = ["greetings.go"],
     importpath = "github.com/Shulammite-Aso/bazel-demo-app/pkg/greetings",
     visibility = ["//visibility:public"],
+    cgo = True,
 )
 
 go_test(

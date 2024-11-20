@@ -6,4 +6,5 @@ go_library(
     importpath = "github.com/Shulammite-Aso/bazel-demo-app/handlers",
     visibility = ["//visibility:public"],
     deps = ["//pkg/greetings"],
+    cgo = True,
 )
